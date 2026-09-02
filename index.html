@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Falukép360 | Magyar Falvak Vizuális Öröksége & 360°-os Dokumentációja</title>
+  
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Falukép360 | Magyar Falvak Vizuális Öröksége">
+  <meta name="description" content="Falukép360 - Magyar települések 360°-os virtuális sétája, falukép imázsfilmek, drónvideók és helyi értéktár dokumentáció TSP Art Lab stílusban.">
+  <meta name="theme-color" content="#860044">
+
+  <!-- Security CSP Meta Tag -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https:; media-src 'self' data: blob: https:; img-src 'self' data: https:; font-src 'self' https:;">
+
+  <!-- Preload Critical Frame -->
+  <link rel="preload" as="image" href="./images/frame1.jpg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons with SRI -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <style>
+    /* ==========================================================================
+       FALUKÉP360 - TSP ARTLAB STÍLUSÚ VIZUÁLIS PORTÁL
+       ========================================================================== */
+    :root {
+      --bg-dark: #0e0a10;
+      --bg-surface: #17111b;
+      --bg-card: #201726;
+      --bg-glass: rgba(14, 10, 16, 0.88);
+      
+      --accent-burgundy: #860044;
+      --accent-wine: #a60a58;
+      --accent-rose: #d63384;
+      --accent-glow: rgba(134, 0, 68, 0.35);
+      
+      --text-main: #ffffff;
+      --text-muted: #cbd5e1;
+      --text-dim: #94a3b8;
+      
+      --border-color: rgba(255, 255, 255, 0.12);
+      --border-burgundy: rgba(134, 0, 68, 0.5);
+      
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+      
+      --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* HEADER & NAVIGATION (TSP ARTLAB LAYOUT) */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: var(--bg-glass);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 18px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition);
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .brand-logo-icon {
+      width: 44px; height: 44px;
+      background: var(--accent-burgundy);
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 20px;
+      color: #fff;
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    .brand-logo-text {
+      font-family: 'Syne', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .brand-logo-text span {
+      color: var(--accent-rose);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+      text-shadow: 0 0 10px var(--accent-rose);
+    }
+
+    .social-header-icons {
+      display: flex;
+      gap: 14px;
+    }
+
+    .social-header-icons a {
+      width: 36px; height: 36px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-full);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-main);
+      font-size: 14px;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .social-header-icons a:hover {
+      background: var(--accent-burgundy);
+      border-color: var(--accent-rose);
+      transform: translateY(-2px);
+    }
+
+    /* FLOATING SIDE CTA BUTTON ("BESZÉLJÜNK!") */
+    #beszeljunk-floating {
+      position: fixed;
+      right: 0;
+      top: 45%;
+      transform: translateY(-50%);
+      z-index: 999;
+      background: var(--accent-burgundy);
+      border-left: 1px solid var(--accent-rose);
+      border-top: 1px solid var(--accent-rose);
+      border-bottom: 1px solid var(--accent-rose);
+      border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+      padding: 16px 10px;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      box-shadow: -5px 0 25px var(--accent-glow);
+      transition: var(--transition);
+    }
+
+    #beszeljunk-floating a {
+      color: #ffffff;
+      text-decoration: none;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    #beszeljunk-floating:hover {
+      background: var(--accent-wine);
+      padding-right: 14px;
+    }
+
+    /* HERO SLIDER WITH SLOW MOTION VIDEO BACKGROUND */
+    .hero-slider {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 160px 48px 100px 48px;
+      text-align: center;
+      overflow: hidden;
+      background: #000000;
+    }
+
+    .video-bg-container {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    /* SLOW MOTION CINEMATIC BACKGROUND CANVAS / SLIDESHOW */
+    .video-frame-slide {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.8s ease-in-out, transform 10s ease-out;
+      transform: scale(1.05);
+      filter: brightness(0.55) contrast(1.1);
+    }
+
+    .video-frame-slide.active {
+      opacity: 1;
+      transform: scale(1.12);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: radial-gradient(circle at center, rgba(14, 10, 16, 0.3) 0%, rgba(14, 10, 16, 0.85) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 900px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(134, 0, 68, 0.25);
+      border: 1px solid var(--accent-burgundy);
+      color: #ffffff;
+      padding: 8px 24px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 64px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      color: #ffffff;
+      margin-bottom: 24px;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+    }
+
+    .typewriter-text {
+      color: var(--accent-rose);
+      border-right: 3px solid var(--accent-rose);
+      white-space: nowrap;
+      animation: blink 0.75s step-end infinite;
+    }
+
+    @keyframes blink { 50% { border-color: transparent; } }
+
+    .hero-subtext {
+      font-size: 20px;
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto 40px auto;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .btn-primary {
+      background: var(--accent-burgundy);
+      color: #ffffff;
+      padding: 14px 32px;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      letter-spacing: 1px;
+      border: 1px solid var(--accent-rose);
+      transition: var(--transition);
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-wine);
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px var(--accent-glow);
+    }
+
+    /* SECTION 1: ABOUT / RÓLUNK ("Ki akarsz tűnni a TÖMEGBŐL?") */
+    section {
+      padding: 120px 48px;
+      position: relative;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    .rolunk-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .rolunk-info h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 44px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      line-height: 1.15;
+    }
+
+    .rolunk-info p {
+      color: var(--text-muted);
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .rolunk-media {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-burgundy);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    }
+
+    .rolunk-media img {
+      width: 100%; height: 500px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .rolunk-media:hover img {
+      transform: scale(1.05);
+    }
+
+    /* SECTION 2: SERVICES ("Szolgáltatások / Ezekben vagyunk jók") */
+    .services-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    .service-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 32px 40px;
+      transition: var(--transition);
+    }
+
+    .service-item:hover {
+      border-color: var(--accent-burgundy);
+      transform: translateX(8px);
+      box-shadow: 0 10px 30px var(--accent-glow);
+    }
+
+    .service-item h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .service-item h3 i {
+      color: var(--accent-rose);
+      font-size: 20px;
+    }
+
+    .service-item p {
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    /* SECTION 3: REFERENCES ("Referenciák") */
+    .references-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    .ref-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .ref-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent-rose);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.5);
+    }
+
+    .ref-img-wrapper {
+      position: relative;
+      height: 240px;
+      overflow: hidden;
+    }
+
+    .ref-img-wrapper img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .ref-card:hover .ref-img-wrapper img {
+      transform: scale(1.06);
+    }
+
+    .play-btn-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .play-btn-icon {
+      width: 56px; height: 56px;
+      background: var(--accent-burgundy);
+      border-radius: var(--radius-full);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-size: 20px;
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    .ref-card-body {
+      padding: 24px;
+    }
+
+    .ref-card-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .ref-card-desc {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    /* VIDEO MODAL LIGHTBOX */
+    .video-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.94);
+      backdrop-filter: blur(12px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .video-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .video-modal-container {
+      max-width: 1000px;
+      width: 100%;
+      position: relative;
+    }
+
+    .video-modal-close {
+      position: absolute;
+      top: -44px; right: 0;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 32px;
+      cursor: pointer;
+    }
+
+    .video-modal-body {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+
+    .video-modal-body iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+    }
+
+    /* FOOTER & CONTACT */
+    footer {
+      background: #080509;
+      border-top: 1px solid var(--border-color);
+      padding: 80px 48px 40px 48px;
+      text-align: center;
+    }
+
+    .contact-form-wrapper {
+      max-width: 650px;
+      margin: 40px auto 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 44px;
+      text-align: left;
+    }
+
+    .form-group { margin-bottom: 20px; }
+    .form-label { display: block; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; color: var(--text-muted); }
+    .form-input, .form-textarea { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 14px 18px; color: #fff; font-family: inherit; font-size: 15px; outline: none; }
+    .form-input:focus, .form-textarea:focus { border-color: var(--accent-rose); }
+    
+    .copyright { margin-top: 60px; color: var(--text-dim); font-size: 12px; }
+
+    @media (max-width: 900px) {
+      header { padding: 16px 20px; }
+      .nav-links { display: none; }
+      .hero-title { font-size: 38px; }
+      .rolunk-grid, .references-grid { grid-template-columns: 1fr; }
+      section { padding: 80px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FLOATING SIDE CTA BUTTON ("BESZÉLJÜNK!") -->
+  <div id="beszeljunk-floating">
+    <a href="#kapcsolat">Beszéljünk!</a>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <a href="#" class="brand-logo">
+      <div class="brand-logo-icon">F360</div>
+      <div class="brand-logo-text">Falukép<span>360</span></div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#rolunk">Rólunk</a></li>
+      <li><a href="#szolgaltatasok">Szolgáltatások</a></li>
+      <li><a href="#referenciak">Referenciák</a></li>
+      <li><a href="#kapcsolat">Kapcsolat</a></li>
+    </ul>
+
+    <div class="social-header-icons">
+      <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+  </header>
+
+  <!-- HERO SLIDER WITH 8-10 SECOND CINEMATIC SLOW MOTION VIDEO BACKGROUND -->
+  <section class="hero-slider">
+    <div class="video-bg-container">
+      <img src="./images/frame1.jpg" id="slide1" class="video-frame-slide active" alt="Balaton Felvidék Drone View">
+      <img src="./images/frame2.jpg" id="slide2" class="video-frame-slide" alt="Traditional Village Street">
+      <img src="./images/frame3.jpg" id="slide3" class="video-frame-slide" alt="360 Virtual Tour Recording">
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <span class="hero-badge"><i class="fa-solid fa-play"></i> Vizuális Örökségvédelem & 360° Media</span>
+      <h1 class="hero-title">Magyar Falvak Öröksége <span id="typewriter" class="typewriter-text"></span></h1>
+      <p class="hero-subtext">
+        Értéket mentünk és történetet mesélünk. 360°-os virtuális séták, falukép imázsfilmek és drónos tájdokumentáció.
+      </p>
+      <div class="hero-actions">
+        <a href="#referenciak" class="btn-primary">Referenciák Megtekintése</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 1: RÓLUNK ("Ki akarsz tűnni a TÖMEGBŐL?") -->
+  <section id="rolunk">
+    <div class="container">
+      <div class="rolunk-grid">
+        <div class="rolunk-info">
+          <h2>Ki akarsz tűnni a TÖMEGBŐL?</h2>
+          <p>
+            Minden magyar településnek és közösségnek egyedi arculata és története van. A digitális térben való jelenlét ma már nem luxus, hanem a turizmus és a helyi identitás alapja.
+          </p>
+          <p>
+            Na, itt jövünk mi képbe! A **Falukép360** csapata olyan 360°-os interaktív sétákat és mozis minőségű falukép videókat gyárt, amelyek megőrzik a magyar vidéki építészet és életképek szépségét az utókornak.
+          </p>
+        </div>
+
+        <div class="rolunk-media">
+          <img src="./images/frame2.jpg" alt="Falusi életképek és hagyományőrzés">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: SZOLGÁLTATÁSOK ("Ezekben vagyunk jók") -->
+  <section id="szolgaltatasok" style="background: var(--bg-surface);">
+    <div class="container">
+      <h2 style="font-family: 'Syne', sans-serif; font-size: 40px; margin-bottom: 12px; text-align: right;">Ezekben vagyunk jók</h2>
+      
+      <ul class="services-list">
+        <li class="service-item">
+          <h3><i class="fa-solid fa-vr-cardboard"></i> 360°-os Virtuális Faluséta & Interaktív Térkép</h3>
+          <p>Nagyfelbontású 360 fokos gömbfotók és légifotós panorámák összefűzése, amelyeken keresztül a látogatók bejárhatják a település nevezetességeit.</p>
+        </li>
+
+        <li class="service-item">
+          <h3><i class="fa-solid fa-video"></i> Települési Imázsfilm & Falukép Dokumentáció</h3>
+          <p>Átfogó mozis imázsfilmek a falu mindennapjairól, építészeti értékeiről, a helyi lakosságról és a táj szépségéről.</p>
+        </li>
+
+        <li class="service-item">
+          <h3><i class="fa-solid fa-drone"></i> Légifotó & Drónvideó Felmérés</h3>
+          <p>Új, eddig nem látott madártávlati perspektívák a faluról, a környező dombokról, templomtornyokról és rendezvényekről.</p>
+        </li>
+
+        <li class="service-item">
+          <h3><i class="fa-solid fa-landmark"></i> Helyi Értéktár & Műemlék Archívum</h3>
+          <p>Védett tájházak, templomok és népi építészeti emlékek digitális archiválása az utókornak 3D és HD videó technológiával.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SECTION 3: REFERENCIÁK ("Referenciák") -->
+  <section id="referenciak">
+    <div class="container">
+      <h2 style="font-family: 'Syne', sans-serif; font-size: 40px; margin-bottom: 24px;">Referenciák</h2>
+
+      <div class="references-grid">
+        <!-- Ref 1 -->
+        <div class="ref-card" onclick="openVideoModal('https://www.youtube.com/embed/4yiI_BhnGN0')">
+          <div class="ref-img-wrapper">
+            <img src="./images/frame1.jpg" alt="Balaton Felvidék 360">
+            <div class="play-btn-overlay">
+              <div class="play-btn-icon"><i class="fa-solid fa-play"></i></div>
+            </div>
+          </div>
+          <div class="ref-card-body">
+            <h3 class="ref-card-title">Tihany & Balaton-felvidék 360°</h3>
+            <p class="ref-card-desc">Légi drónos imázsfilm és interaktív faluséta bemutató.</p>
+          </div>
+        </div>
+
+        <!-- Ref 2 -->
+        <div class="ref-card" onclick="openVideoModal('https://www.youtube.com/embed/KQAZyUdpBfE')">
+          <div class="ref-img-wrapper">
+            <img src="./images/frame2.jpg" alt="Hollókő Életképek">
+            <div class="play-btn-overlay">
+              <div class="play-btn-icon"><i class="fa-solid fa-play"></i></div>
+            </div>
+          </div>
+          <div class="ref-card-body">
+            <h3 class="ref-card-title">Népi Építészet & Falukép</h3>
+            <p class="ref-card-desc">Hagyományőrző utcakép és tájházak lassított dokumentációja.</p>
+          </div>
+        </div>
+
+        <!-- Ref 3 -->
+        <div class="ref-card" onclick="openVideoModal('https://www.youtube.com/embed/4yiI_BhnGN0')">
+          <div class="ref-img-wrapper">
+            <img src="./images/frame3.jpg" alt="Templom 360 Felmérés">
+            <div class="play-btn-overlay">
+              <div class="play-btn-icon"><i class="fa-solid fa-play"></i></div>
+            </div>
+          </div>
+          <div class="ref-card-body">
+            <h3 class="ref-card-title">Műemlék 360° Belső Felmérés</h3>
+            <p class="ref-card-desc">Belső világítású és stúdió minőségű örökségvédelmi videó.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: KAPCSOLAT ("Beszéljünk!") -->
+  <footer id="kapcsolat">
+    <div class="container">
+      <h2 style="font-family: 'Syne', sans-serif; font-size: 36px; color: #fff;">Beszéljünk a projektről!</h2>
+      <p style="color: var(--text-muted); margin-top: 8px;">Kérjen árajánlatot települése 360°-os virtuális sétájára és imázsfilmjére.</p>
+
+      <div class="contact-form-wrapper">
+        <form onsubmit="event.preventDefault(); alert('Köszönjük! Az üzenetet megkaptuk, hamarosan felvesszük a kapcsolatot.');">
+          <div class="form-group">
+            <label class="form-label">Település / Szervezet Neve</label>
+            <input type="text" class="form-input" placeholder="pl. Tihany Község Önkormányzata" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">E-mail Cím</label>
+            <input type="email" class="form-input" placeholder="kapcsolat@telepules.hu" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Üzenet / Projekt Igény</label>
+            <textarea class="form-textarea" rows="4" placeholder="Írja le az elképzelését..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Üzenet Küldése</button>
+        </form>
+      </div>
+
+      <div class="copyright">
+        &copy; 2026 FALUKÉP360 - TSP Art Lab referencia elrendezés. Minden jog fenntartva.
+      </div>
+    </div>
+  </footer>
+
+  <!-- VIDEO LIGHTBOX MODAL -->
+  <div class="video-modal" id="video-modal" onclick="closeVideoModal()">
+    <div class="video-modal-container" onclick="event.stopPropagation()">
+      <button class="video-modal-close" onclick="closeVideoModal()">&times;</button>
+      <div class="video-modal-body">
+        <iframe id="video-iframe" src="" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT ANIMATIONS & SLOW-MOTION BACKGROUND SLIDER -->
+  <script>
+    // 1. 8-10 SECOND CINEMATIC SLOW MOTION BACKGROUND SLIDER (MIMICS SLOW VIDEO LOOP)
+    const slides = [
+      document.getElementById('slide1'),
+      document.getElementById('slide2'),
+      document.getElementById('slide3')
+    ];
+    let currentSlide = 0;
+
+    setInterval(() => {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }, 4500); // 4.5s transition = 9-10 second smooth video loop cycle
+
+    // 2. TYPEWRITER EFFECT FOR HERO TITLE
+    const words = ["360°-ban.", "Imázsfilmekben.", "Virtuális Sétákon."];
+    let wordIdx = 0;
+    let charIdx = 0;
+    let isDeleting = false;
+    const typeElement = document.getElementById('typewriter');
+
+    function typeEffect() {
+      const currentWord = words[wordIdx];
+      if (isDeleting) {
+        typeElement.textContent = currentWord.substring(0, charIdx - 1);
+        charIdx--;
+      } else {
+        typeElement.textContent = currentWord.substring(0, charIdx + 1);
+        charIdx++;
+      }
+
+      let speed = isDeleting ? 60 : 120;
+
+      if (!isDeleting && charIdx === currentWord.length) {
+        speed = 2000;
+        isDeleting = true;
+      } else if (isDeleting && charIdx === 0) {
+        isDeleting = false;
+        wordIdx = (wordIdx + 1) % words.length;
+        speed = 500;
+      }
+
+      setTimeout(typeEffect, speed);
+    }
+
+    document.addEventListener('DOMContentLoaded', typeEffect);
+
+    // 3. VIDEO MODAL LIGHTBOX
+    function openVideoModal(url) {
+      document.getElementById('video-iframe').src = url + "?autoplay=1";
+      document.getElementById('video-modal').classList.add('active');
+    }
+
+    function closeVideoModal() {
+      document.getElementById('video-modal').classList.remove('active');
+      document.getElementById('video-iframe').src = "";
+    }
+  </script>
+</body>
+</html>

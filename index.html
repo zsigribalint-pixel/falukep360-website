@@ -7,8 +7,8 @@
   
   <!-- Primary Meta Tags -->
   <meta name="title" content="Falukép360 | Magyar Falvak Vizuális Öröksége">
-  <meta name="description" content="Falukép360 - Magyar települések 360°-os virtuális sétája, falukép imázsfilmek, drónvideók és helyi értéktár dokumentáció TSP Art Lab stílusban.">
-  <meta name="theme-color" content="#860044">
+  <meta name="description" content="Falukép360 - Magyar települések 360°-os virtuális sétája, falukép imázsfilmek, drónvideók és helyi értéktár dokumentáció hivatalos és modern arculattal.">
+  <meta name="theme-color" content="#0a0f1d">
 
   <!-- Security CSP Meta Tag -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https:; media-src 'self' data: blob: https:; img-src 'self' data: https:; font-src 'self' https:;">
@@ -16,34 +16,34 @@
   <!-- Preload Critical Frame -->
   <link rel="preload" as="image" href="./images/frame1.jpg">
 
-  <!-- Premium Google Fonts: Outfit & Plus Jakarta Sans -->
+  <!-- Modern Official Fonts: Space Grotesk & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <!-- FontAwesome Icons with SRI -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
   <style>
     /* ==========================================================================
-       FALUKÉP360 - TSP ARTLAB STÍLUSÚ VIZUÁLIS PORTÁL (EGY SOROS CÍMSOR)
+       FALUKÉP360 - MODERN & HIVATALOS PALETTA & 2-SOROS GÉPELT CÍMSOR
        ========================================================================== */
     :root {
-      --bg-dark: #0e0a10;
-      --bg-surface: #17111b;
-      --bg-card: #201726;
-      --bg-glass: rgba(14, 10, 16, 0.88);
+      --bg-dark: #0a0f1d;
+      --bg-surface: #111827;
+      --bg-card: #1e293b;
+      --bg-glass: rgba(10, 15, 29, 0.90);
       
-      --accent-burgundy: #860044;
-      --accent-wine: #a60a58;
-      --accent-rose: #d63384;
-      --accent-glow: rgba(134, 0, 68, 0.35);
+      --accent-blue: #2563eb;
+      --accent-cyan: #06b6d4;
+      --accent-gold: #f59e0b;
+      --accent-glow: rgba(37, 99, 235, 0.35);
       
       --text-main: #ffffff;
-      --text-muted: #cbd5e1;
+      --text-muted: #e2e8f0;
       --text-dim: #94a3b8;
       
-      --border-color: rgba(255, 255, 255, 0.12);
-      --border-burgundy: rgba(134, 0, 68, 0.5);
+      --border-color: rgba(255, 255, 255, 0.14);
+      --border-blue: rgba(37, 99, 235, 0.4);
       
       --radius-sm: 8px;
       --radius-md: 16px;
@@ -57,7 +57,7 @@
     html { scroll-behavior: smooth; }
     
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
       background-color: var(--bg-dark);
       color: var(--text-main);
       overflow-x: hidden;
@@ -70,7 +70,7 @@
       top: 0; left: 0; right: 0;
       z-index: 1000;
       background: var(--bg-glass);
-      backdrop-filter: blur(18px);
+      backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border-color);
       padding: 18px 48px;
       display: flex;
@@ -89,25 +89,25 @@
 
     .brand-logo-icon {
       width: 44px; height: 44px;
-      background: var(--accent-burgundy);
+      background: linear-gradient(135deg, var(--accent-blue), #1d4ed8);
       border-radius: var(--radius-sm);
       display: flex; align-items: center; justify-content: center;
-      font-family: 'Outfit', sans-serif;
-      font-weight: 800;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
       font-size: 20px;
       color: #fff;
       box-shadow: 0 0 20px var(--accent-glow);
     }
 
     .brand-logo-text {
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-size: 22px;
-      font-weight: 800;
+      font-weight: 700;
       letter-spacing: 1px;
     }
 
     .brand-logo-text span {
-      color: var(--accent-rose);
+      color: var(--accent-gold);
     }
 
     .nav-links {
@@ -120,7 +120,7 @@
       color: var(--text-muted);
       text-decoration: none;
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: 1px;
       text-transform: uppercase;
       transition: var(--transition);
@@ -128,7 +128,7 @@
 
     .nav-links a:hover {
       color: #ffffff;
-      text-shadow: 0 0 10px var(--accent-rose);
+      text-shadow: 0 0 10px var(--accent-cyan);
     }
 
     .social-header-icons {
@@ -149,8 +149,8 @@
     }
 
     .social-header-icons a:hover {
-      background: var(--accent-burgundy);
-      border-color: var(--accent-rose);
+      background: var(--accent-blue);
+      border-color: var(--accent-cyan);
       transform: translateY(-2px);
     }
 
@@ -161,10 +161,10 @@
       top: 45%;
       transform: translateY(-50%);
       z-index: 999;
-      background: var(--accent-burgundy);
-      border-left: 1px solid var(--accent-rose);
-      border-top: 1px solid var(--accent-rose);
-      border-bottom: 1px solid var(--accent-rose);
+      background: var(--accent-blue);
+      border-left: 1px solid var(--accent-cyan);
+      border-top: 1px solid var(--accent-cyan);
+      border-bottom: 1px solid var(--accent-cyan);
       border-radius: var(--radius-sm) 0 0 var(--radius-sm);
       padding: 16px 10px;
       writing-mode: vertical-rl;
@@ -176,15 +176,15 @@
     #beszeljunk-floating a {
       color: #ffffff;
       text-decoration: none;
-      font-family: 'Outfit', sans-serif;
-      font-weight: 800;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
       font-size: 13px;
       letter-spacing: 3px;
       text-transform: uppercase;
     }
 
     #beszeljunk-floating:hover {
-      background: var(--accent-wine);
+      background: #1d4ed8;
       padding-right: 14px;
     }
 
@@ -228,13 +228,13 @@
       position: absolute;
       inset: 0;
       z-index: 2;
-      background: radial-gradient(circle at center, rgba(14, 10, 16, 0.3) 0%, rgba(14, 10, 16, 0.85) 100%);
+      background: radial-gradient(circle at center, rgba(10, 15, 29, 0.35) 0%, rgba(10, 15, 29, 0.88) 100%);
     }
 
     .hero-content {
       position: relative;
       z-index: 3;
-      max-width: 1100px;
+      max-width: 1000px;
       width: 100%;
     }
 
@@ -242,49 +242,49 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: rgba(134, 0, 68, 0.25);
-      border: 1px solid var(--accent-burgundy);
+      background: rgba(37, 99, 235, 0.2);
+      border: 1px solid var(--accent-blue);
       color: #ffffff;
       padding: 8px 24px;
       border-radius: var(--radius-full);
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 700;
       letter-spacing: 3px;
       text-transform: uppercase;
       margin-bottom: 28px;
       backdrop-filter: blur(10px);
     }
 
-    /* SINGLE-LINE HERO TITLE (STRICTLY ONE LINE THROUGHOUT) */
+    /* TYPEWRITER TEXT ALWAYS ON A NEW LINE BELOW MAIN HEADLINE */
     .hero-title-container {
-      width: 100%;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      white-space: nowrap;
-      overflow: hidden;
-      margin-bottom: 24px;
-    }
-
-    .hero-title {
-      font-family: 'Outfit', sans-serif;
-      font-size: 48px;
-      font-weight: 800;
-      line-height: 1.2;
-      color: #ffffff;
-      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.85);
-      white-space: nowrap;
-      display: inline-flex;
+      flex-direction: column; /* GÉPELT SZÖVEG MINDEN ESETBEN ÚJ SORBAN JELENIK MEG */
       align-items: center;
       justify-content: center;
       gap: 12px;
+      margin-bottom: 24px;
     }
 
-    .typewriter-text {
-      color: var(--accent-rose);
-      border-right: 3px solid var(--accent-rose);
+    .hero-title-main {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+      color: #ffffff;
+      letter-spacing: -1px;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.85);
+    }
+
+    .hero-title-typed {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 46px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--accent-gold);
+      border-right: 3.5px solid var(--accent-gold);
       white-space: nowrap;
       display: inline-block;
+      min-height: 56px;
       animation: blink 0.75s step-end infinite;
     }
 
@@ -304,7 +304,7 @@
     }
 
     .btn-primary {
-      background: var(--accent-burgundy);
+      background: var(--accent-blue);
       color: #ffffff;
       padding: 14px 32px;
       border-radius: var(--radius-full);
@@ -312,13 +312,13 @@
       font-size: 14px;
       text-decoration: none;
       letter-spacing: 1px;
-      border: 1px solid var(--accent-rose);
+      border: 1px solid var(--accent-cyan);
       transition: var(--transition);
       box-shadow: 0 0 20px var(--accent-glow);
     }
 
     .btn-primary:hover {
-      background: var(--accent-wine);
+      background: #1d4ed8;
       transform: translateY(-2px);
       box-shadow: 0 0 30px var(--accent-glow);
     }
@@ -339,9 +339,9 @@
     }
 
     .rolunk-info h2 {
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-size: 44px;
-      font-weight: 800;
+      font-weight: 700;
       margin-bottom: 20px;
       line-height: 1.15;
     }
@@ -357,7 +357,7 @@
       position: relative;
       border-radius: var(--radius-lg);
       overflow: hidden;
-      border: 1px solid var(--border-burgundy);
+      border: 1px solid var(--border-blue);
       box-shadow: 0 20px 40px rgba(0,0,0,0.6);
     }
 
@@ -390,15 +390,15 @@
     }
 
     .service-item:hover {
-      border-color: var(--accent-burgundy);
+      border-color: var(--accent-blue);
       transform: translateX(8px);
       box-shadow: 0 10px 30px var(--accent-glow);
     }
 
     .service-item h3 {
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-size: 24px;
-      font-weight: 800;
+      font-weight: 700;
       color: #ffffff;
       margin-bottom: 12px;
       display: flex;
@@ -407,7 +407,7 @@
     }
 
     .service-item h3 i {
-      color: var(--accent-rose);
+      color: var(--accent-gold);
       font-size: 20px;
     }
 
@@ -435,7 +435,7 @@
 
     .ref-card:hover {
       transform: translateY(-8px);
-      border-color: var(--accent-rose);
+      border-color: var(--accent-cyan);
       box-shadow: 0 16px 36px rgba(0,0,0,0.5);
     }
 
@@ -467,7 +467,7 @@
 
     .play-btn-icon {
       width: 56px; height: 56px;
-      background: var(--accent-burgundy);
+      background: var(--accent-blue);
       border-radius: var(--radius-full);
       display: flex; align-items: center; justify-content: center;
       color: #fff;
@@ -480,9 +480,9 @@
     }
 
     .ref-card-title {
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-size: 20px;
-      font-weight: 800;
+      font-weight: 700;
       margin-bottom: 8px;
     }
 
@@ -545,7 +545,7 @@
 
     /* FOOTER & CONTACT */
     footer {
-      background: #080509;
+      background: #060913;
       border-top: 1px solid var(--border-color);
       padding: 80px 48px 40px 48px;
       text-align: center;
@@ -564,18 +564,15 @@
     .form-group { margin-bottom: 20px; }
     .form-label { display: block; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; color: var(--text-muted); }
     .form-input, .form-textarea { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 14px 18px; color: #fff; font-family: inherit; font-size: 15px; outline: none; }
-    .form-input:focus, .form-textarea:focus { border-color: var(--accent-rose); }
+    .form-input:focus, .form-textarea:focus { border-color: var(--accent-cyan); }
     
     .copyright { margin-top: 60px; color: var(--text-dim); font-size: 12px; }
-
-    @media (max-width: 1024px) {
-      .hero-title { font-size: 34px; }
-    }
 
     @media (max-width: 768px) {
       header { padding: 16px 20px; }
       .nav-links { display: none; }
-      .hero-title { font-size: 26px; }
+      .hero-title-main { font-size: 36px; }
+      .hero-title-typed { font-size: 30px; }
       .rolunk-grid, .references-grid { grid-template-columns: 1fr; }
       section { padding: 80px 20px; }
     }
@@ -609,7 +606,7 @@
     </div>
   </header>
 
-  <!-- HERO SLIDER WITH 8-10 SECOND CINEMATIC SLOW MOTION VIDEO BACKGROUND -->
+  <!-- HERO SLIDER WITH SLOW MOTION VIDEO BACKGROUND -->
   <section class="hero-slider">
     <div class="video-bg-container">
       <img src="./images/frame1.jpg" id="slide1" class="video-frame-slide active" alt="Balaton Felvidék Drone View">
@@ -621,12 +618,10 @@
     <div class="hero-content">
       <span class="hero-badge"><i class="fa-solid fa-play"></i> Vizuális Örökségvédelem & 360° Media</span>
       
-      <!-- SINGLE-LINE HERO TITLE (STRICTLY ONE LINE THROUGHOUT) -->
+      <!-- TYPEWRITER TEXT ALWAYS ON A NEW LINE BELOW MAIN HEADLINE -->
       <div class="hero-title-container">
-        <h1 class="hero-title">
-          <span>Magyar Falvak Öröksége</span>
-          <span id="typewriter" class="typewriter-text"></span>
-        </h1>
+        <h1 class="hero-title-main">Magyar Falvak Öröksége</h1>
+        <span id="typewriter" class="hero-title-typed"></span>
       </div>
 
       <p class="hero-subtext">
@@ -662,7 +657,7 @@
   <!-- SECTION 2: SZOLGÁLTATÁSOK -->
   <section id="szolgaltatasok" style="background: var(--bg-surface);">
     <div class="container">
-      <h2 style="font-family: 'Outfit', sans-serif; font-size: 40px; margin-bottom: 12px; text-align: right;">Ezekben vagyunk jók</h2>
+      <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 40px; margin-bottom: 12px; text-align: right;">Ezekben vagyunk jók</h2>
       
       <ul class="services-list">
         <li class="service-item">
@@ -691,7 +686,7 @@
   <!-- SECTION 3: REFERENCIÁK -->
   <section id="referenciak">
     <div class="container">
-      <h2 style="font-family: 'Outfit', sans-serif; font-size: 40px; margin-bottom: 24px;">Referenciák</h2>
+      <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 40px; margin-bottom: 24px;">Referenciák</h2>
 
       <div class="references-grid">
         <!-- Ref 1 -->
@@ -742,7 +737,7 @@
   <!-- SECTION 4: KAPCSOLAT -->
   <footer id="kapcsolat">
     <div class="container">
-      <h2 style="font-family: 'Outfit', sans-serif; font-size: 36px; color: #fff;">Beszéljünk a projektről!</h2>
+      <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 36px; color: #fff;">Beszéljünk a projektről!</h2>
       <p style="color: var(--text-muted); margin-top: 8px;">Kérjen árajánlatot települése 360°-os virtuális sétájára és imázsfilmjére.</p>
 
       <div class="contact-form-wrapper">
@@ -798,7 +793,7 @@
       slides[currentSlide].classList.add('active');
     }, 4500);
 
-    // 2. TYPEWRITER EFFECT FOR SINGLE-LINE HERO TITLE
+    // 2. TYPEWRITER EFFECT FOR NEW-LINE HERO TITLE
     const words = ["360°-ban.", "Imázsfilmekben.", "Virtuális Sétákon."];
     let wordIdx = 0;
     let charIdx = 0;

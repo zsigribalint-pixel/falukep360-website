@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 85" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 90" width="100%" height="100%">
   <defs>
     <linearGradient id="logo-blue" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#3b82f6" />
@@ -10,32 +10,41 @@
     </linearGradient>
   </defs>
 
-  <!-- ICON: HUNGARIAN VILLAGE ROOF + 360° APERTURE RING -->
-  <g transform="translate(10, 8)">
-    <!-- Traditional House Roof Line -->
-    <path d="M 5,34 L 34,10 L 63,34" fill="none" stroke="url(#logo-blue)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
-    <path d="M 50,22 L 50,14 L 56,14 L 56,27" fill="none" stroke="url(#logo-blue)" stroke-width="3" />
-    
-    <!-- 360 Degree Aperture Circle -->
-    <circle cx="34" cy="44" r="22" fill="none" stroke="url(#logo-gold)" stroke-width="4" />
-    
-    <!-- Camera Lens Inner Pupil -->
-    <circle cx="34" cy="44" r="8" fill="none" stroke="url(#logo-gold)" stroke-width="3" />
-    
-    <!-- 360 Degree Arrow Arc -->
-    <path d="M 56,44 A 22,22 0 1,1 48,27" fill="none" stroke="url(#logo-gold)" stroke-width="3" stroke-dasharray="4 2" />
-    <polygon points="52,24 58,30 50,33" fill="url(#logo-gold)" />
+  <!-- 25% HORIZONTALLY STRETCHED GLOBAL EYE PICTOGRAM ICON -->
+  <g transform="translate(10, 10) scale(0.22)" stroke="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Globe Outer Ellipse (25% Horizontally Stretched: rx=175, ry=140) -->
+    <ellipse cx="225" cy="180" rx="175" ry="140" stroke="url(#logo-blue)" stroke-width="8" fill="none" />
+
+    <!-- Equator Line -->
+    <line x1="50" y1="180" x2="400" y2="180" stroke="url(#logo-blue)" stroke-width="5" opacity="0.8" />
+
+    <!-- Latitude Ellipse Arcs -->
+    <path d="M 75,110 Q 225,145 375,110" stroke="url(#logo-blue)" stroke-width="5" fill="none" opacity="0.85" />
+    <path d="M 75,250 Q 225,215 375,250" stroke="url(#logo-blue)" stroke-width="5" fill="none" opacity="0.85" />
+
+    <!-- Prime Meridian & Longitude Arcs -->
+    <line x1="225" y1="40" x2="225" y2="320" stroke="url(#logo-blue)" stroke-width="5" opacity="0.8" />
+    <path d="M 225,40 C 145,100 145,260 225,320" stroke="url(#logo-blue)" stroke-width="5" fill="none" opacity="0.85" />
+    <path d="M 225,40 C 305,100 305,260 225,320" stroke="url(#logo-blue)" stroke-width="5" fill="none" opacity="0.85" />
+
+    <!-- CENTER EYE PICTOGRAM HARMONIZED -->
+    <path d="M 120,180 Q 225,105 330,180 Q 225,255 120,180 Z" fill="#0a0f1d" stroke="none" />
+    <path d="M 120,180 Q 225,105 330,180 Q 225,255 120,180 Z" stroke="url(#logo-gold)" stroke-width="9" fill="none" />
+
+    <!-- Iris Circle -->
+    <circle cx="225" cy="180" r="38" stroke="url(#logo-gold)" stroke-width="7" fill="#0a0f1d" />
+
+    <!-- Pupil Solid Circle -->
+    <circle cx="225" cy="180" r="18" fill="url(#logo-gold)" stroke="none" />
+
+    <!-- Light Reflection Highlight Dot -->
+    <circle cx="232" cy="174" r="5" fill="#ffffff" stroke="none" />
   </g>
 
-  <!-- TYPOGRAPHY: FALUKÉP 360 -->
-  <g transform="translate(85, 48)">
-    <!-- FALUKÉP Main Text -->
-    <text font-family="'Space Grotesk', 'Inter', sans-serif" font-weight="800" font-size="30" fill="#ffffff" letter-spacing="1">FALUKÉP</text>
-    
-    <!-- 360 Gold Badge -->
-    <text x="145" y="0" font-family="'Space Grotesk', 'Inter', sans-serif" font-weight="800" font-size="30" fill="url(#logo-gold)" letter-spacing="1">360</text>
-    
-    <!-- Tagline -->
-    <text x="2" y="18" font-family="'Inter', sans-serif" font-weight="600" font-size="9" fill="#94a3b8" letter-spacing="3.5">VIZUÁLIS ÖRÖKSÉGVÉDELEM</text>
+  <!-- BRAND TYPOGRAPHY: FALUKÉP 360 -->
+  <g transform="translate(125, 52)">
+    <text font-family="'Space Grotesk', sans-serif" font-weight="800" font-size="32" fill="#ffffff" letter-spacing="1">FALUKÉP</text>
+    <text x="152" y="0" font-family="'Space Grotesk', sans-serif" font-weight="800" font-size="32" fill="url(#logo-gold)" letter-spacing="1">360</text>
+    <text x="2" y="20" font-family="'Inter', sans-serif" font-weight="600" font-size="9" fill="#94a3b8" letter-spacing="3.5">VIZUÁLIS ÖRÖKSÉGVÉDELEM</text>
   </g>
 </svg>

@@ -13,8 +13,8 @@
   <!-- Security CSP Meta Tag -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https:; media-src 'self' data: blob: https:; img-src 'self' data: https:; font-src 'self' https:;">
 
-  <!-- Preload Critical Frame & Logo -->
-  <link rel="preload" as="image" href="./images/frame1.jpg">
+  <!-- Preload Critical Assets -->
+  <link rel="preload" as="video" href="./videos/falusi_eletkep_5sec.mp4" type="video/mp4">
   <link rel="preload" as="image" href="./images/falukep_logo.svg">
 
   <!-- Modern Official Fonts: Space Grotesk & Inter -->
@@ -26,7 +26,7 @@
 
   <style>
     /* ==========================================================================
-       FALUKÉP360 - HIVATALOS FALUKÉP LOGÓVAL & SZEKERES PALETTÁVAL
+       FALUKÉP360 - 5 SEC SLOW-MOTION VIDEO BACKGROUND & HIVATALOS PALETTA
        ========================================================================== */
     :root {
       --bg-dark: #0a0f1d;
@@ -65,7 +65,7 @@
       line-height: 1.6;
     }
 
-    /* HEADER & NAVIGATION (OFFICIAL FALUKÉP LOGO) */
+    /* HEADER & NAVIGATION */
     header {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -176,7 +176,7 @@
       padding-right: 14px;
     }
 
-    /* HERO SLIDER WITH SLOW MOTION VIDEO BACKGROUND */
+    /* HERO SLIDER WITH REAL 5SEC SLOW MOTION VIDEO BACKGROUND */
     .hero-slider {
       position: relative;
       min-height: 100vh;
@@ -196,20 +196,12 @@
       overflow: hidden;
     }
 
-    .video-frame-slide {
-      position: absolute;
-      inset: 0;
-      width: 100%; height: 100%;
+    .hero-video-bg {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      opacity: 0;
-      transition: opacity 1.8s ease-in-out, transform 10s ease-out;
-      transform: scale(1.05);
       filter: brightness(0.55) contrast(1.1);
-    }
-
-    .video-frame-slide.active {
-      opacity: 1;
-      transform: scale(1.12);
+      transform: scale(1.05);
     }
 
     .hero-overlay {
@@ -600,12 +592,12 @@
     </div>
   </header>
 
-  <!-- HERO SLIDER WITH SLOW MOTION VIDEO BACKGROUND -->
+  <!-- HERO SLIDER WITH REAL 5-SECOND SLOW MOTION VIDEO BACKGROUND -->
   <section class="hero-slider">
     <div class="video-bg-container">
-      <img src="./images/frame1.jpg" id="slide1" class="video-frame-slide active" alt="Balaton Felvidék Drone View">
-      <img src="./images/frame2.jpg" id="slide2" class="video-frame-slide" alt="Traditional Village Street">
-      <img src="./images/frame3.jpg" id="slide3" class="video-frame-slide" alt="360 Virtual Tour Recording">
+      <video id="hero-bg-video" class="hero-video-bg" autoplay loop muted playsinline preload="auto">
+        <source src="./videos/falusi_eletkep_5sec.mp4" type="video/mp4">
+      </video>
     </div>
     <div class="hero-overlay"></div>
 
@@ -774,21 +766,22 @@
     </div>
   </div>
 
-  <!-- JAVASCRIPT ANIMATIONS & SLOW-MOTION BACKGROUND SLIDER -->
+  <!-- JAVASCRIPT ANIMATIONS & SLOW-MOTION VIDEO PLAYBACK -->
   <script>
-    // 1. 8-10 SECOND CINEMATIC SLOW MOTION BACKGROUND SLIDER
-    const slides = [
-      document.getElementById('slide1'),
-      document.getElementById('slide2'),
-      document.getElementById('slide3')
-    ];
-    let currentSlide = 0;
-
-    setInterval(() => {
-      slides[currentSlide].classList.remove('active');
-      currentSlide = (currentSlide + 1) % slides.length;
-      slides[currentSlide].classList.add('active');
-    }, 4500);
+    // 1. SLOW MOTION VIDEO PLAYBACK RATE (50% SPEED = playbackRate = 0.5)
+    document.addEventListener('DOMContentLoaded', () => {
+      const bgVideo = document.getElementById('hero-bg-video');
+      if (bgVideo) {
+        bgVideo.muted = true;
+        bgVideo.playbackRate = 0.5; // 50%-OS LASSÍTÁS
+        bgVideo.play().catch(() => {
+          document.body.addEventListener('click', () => {
+            bgVideo.play();
+            bgVideo.playbackRate = 0.5;
+          }, { once: true });
+        });
+      }
+    });
 
     // 2. TYPEWRITER EFFECT FOR NEW-LINE HERO TITLE
     const words = ["360°-ban.", "Imázsfilmekben.", "Virtuális Sétákon."];

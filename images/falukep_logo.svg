@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 85" width="100%" height="100%">
+  <defs>
+    <linearGradient id="logo-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+    <linearGradient id="logo-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+  </defs>
+
+  <!-- ICON: HUNGARIAN VILLAGE ROOF + 360° APERTURE RING -->
+  <g transform="translate(10, 8)">
+    <!-- Traditional House Roof Line -->
+    <path d="M 5,34 L 34,10 L 63,34" fill="none" stroke="url(#logo-blue)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M 50,22 L 50,14 L 56,14 L 56,27" fill="none" stroke="url(#logo-blue)" stroke-width="3" />
+    
+    <!-- 360 Degree Aperture Circle -->
+    <circle cx="34" cy="44" r="22" fill="none" stroke="url(#logo-gold)" stroke-width="4" />
+    
+    <!-- Camera Lens Inner Pupil -->
+    <circle cx="34" cy="44" r="8" fill="none" stroke="url(#logo-gold)" stroke-width="3" />
+    
+    <!-- 360 Degree Arrow Arc -->
+    <path d="M 56,44 A 22,22 0 1,1 48,27" fill="none" stroke="url(#logo-gold)" stroke-width="3" stroke-dasharray="4 2" />
+    <polygon points="52,24 58,30 50,33" fill="url(#logo-gold)" />
+  </g>
+
+  <!-- TYPOGRAPHY: FALUKÉP 360 -->
+  <g transform="translate(85, 48)">
+    <!-- FALUKÉP Main Text -->
+    <text font-family="'Space Grotesk', 'Inter', sans-serif" font-weight="800" font-size="30" fill="#ffffff" letter-spacing="1">FALUKÉP</text>
+    
+    <!-- 360 Gold Badge -->
+    <text x="145" y="0" font-family="'Space Grotesk', 'Inter', sans-serif" font-weight="800" font-size="30" fill="url(#logo-gold)" letter-spacing="1">360</text>
+    
+    <!-- Tagline -->
+    <text x="2" y="18" font-family="'Inter', sans-serif" font-weight="600" font-size="9" fill="#94a3b8" letter-spacing="3.5">VIZUÁLIS ÖRÖKSÉGVÉDELEM</text>
+  </g>
+</svg>

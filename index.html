@@ -13,25 +13,26 @@
   <!-- Security CSP Meta Tag -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https:; media-src 'self' data: blob: https:; img-src 'self' data: https:; font-src 'self' https:;">
 
-  <!-- Preload Critical Frame -->
+  <!-- Preload Critical Frame & Logo -->
   <link rel="preload" as="image" href="./images/frame1.jpg">
+  <link rel="preload" as="image" href="./images/falukep_logo.svg">
 
   <!-- Modern Official Fonts: Space Grotesk & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
   <!-- FontAwesome Icons with SRI -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
   <style>
     /* ==========================================================================
-       FALUKÉP360 - MODERN & HIVATALOS PALETTA & 2-SOROS GÉPELT CÍMSOR
+       FALUKÉP360 - HIVATALOS FALUKÉP LOGÓVAL & SZEKERES PALETTÁVAL
        ========================================================================== */
     :root {
       --bg-dark: #0a0f1d;
       --bg-surface: #111827;
       --bg-card: #1e293b;
-      --bg-glass: rgba(10, 15, 29, 0.90);
+      --bg-glass: rgba(10, 15, 29, 0.92);
       
       --accent-blue: #2563eb;
       --accent-cyan: #06b6d4;
@@ -64,7 +65,7 @@
       line-height: 1.6;
     }
 
-    /* HEADER & NAVIGATION */
+    /* HEADER & NAVIGATION (OFFICIAL FALUKÉP LOGO) */
     header {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -72,42 +73,29 @@
       background: var(--bg-glass);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border-color);
-      padding: 18px 48px;
+      padding: 14px 48px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       transition: var(--transition);
     }
 
-    .brand-logo {
+    .brand-logo-link {
       display: flex;
       align-items: center;
-      gap: 12px;
       text-decoration: none;
-      color: var(--text-main);
+      transition: var(--transition);
     }
 
-    .brand-logo-icon {
-      width: 44px; height: 44px;
-      background: linear-gradient(135deg, var(--accent-blue), #1d4ed8);
-      border-radius: var(--radius-sm);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 20px;
-      color: #fff;
-      box-shadow: 0 0 20px var(--accent-glow);
+    .brand-logo-link:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
     }
 
-    .brand-logo-text {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
-
-    .brand-logo-text span {
-      color: var(--accent-gold);
+    .brand-logo-img {
+      height: 52px;
+      width: auto;
+      display: block;
     }
 
     .nav-links {
@@ -258,7 +246,7 @@
     /* TYPEWRITER TEXT ALWAYS ON A NEW LINE BELOW MAIN HEADLINE */
     .hero-title-container {
       display: flex;
-      flex-direction: column; /* GÉPELT SZÖVEG MINDEN ESETBEN ÚJ SORBAN JELENIK MEG */
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 12px;
@@ -268,7 +256,7 @@
     .hero-title-main {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 56px;
-      font-weight: 700;
+      font-weight: 800;
       line-height: 1.15;
       color: #ffffff;
       letter-spacing: -1px;
@@ -278,7 +266,7 @@
     .hero-title-typed {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 46px;
-      font-weight: 700;
+      font-weight: 800;
       line-height: 1.2;
       color: var(--accent-gold);
       border-right: 3.5px solid var(--accent-gold);
@@ -551,6 +539,12 @@
       text-align: center;
     }
 
+    .footer-logo-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
     .contact-form-wrapper {
       max-width: 650px;
       margin: 40px auto 0 auto;
@@ -569,8 +563,9 @@
     .copyright { margin-top: 60px; color: var(--text-dim); font-size: 12px; }
 
     @media (max-width: 768px) {
-      header { padding: 16px 20px; }
+      header { padding: 14px 20px; }
       .nav-links { display: none; }
+      .brand-logo-img { height: 42px; }
       .hero-title-main { font-size: 36px; }
       .hero-title-typed { font-size: 30px; }
       .rolunk-grid, .references-grid { grid-template-columns: 1fr; }
@@ -585,11 +580,10 @@
     <a href="#kapcsolat">Beszéljünk!</a>
   </div>
 
-  <!-- HEADER -->
+  <!-- HEADER WITH OFFICIAL FALUKÉP LOGO -->
   <header>
-    <a href="#" class="brand-logo">
-      <div class="brand-logo-icon">F360</div>
-      <div class="brand-logo-text">Falukép<span>360</span></div>
+    <a href="#" class="brand-logo-link">
+      <img src="./images/falukep_logo.svg" alt="FALUKÉP 360" class="brand-logo-img">
     </a>
 
     <ul class="nav-links">
@@ -737,7 +731,10 @@
   <!-- SECTION 4: KAPCSOLAT -->
   <footer id="kapcsolat">
     <div class="container">
-      <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 36px; color: #fff;">Beszéljünk a projektről!</h2>
+      <div class="footer-logo-container">
+        <img src="./images/falukep_logo.svg" alt="FALUKÉP 360" style="height: 56px; width: auto;">
+      </div>
+      <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 32px; color: #fff;">Beszéljünk a projektről!</h2>
       <p style="color: var(--text-muted); margin-top: 8px;">Kérjen árajánlatot települése 360°-os virtuális sétájára és imázsfilmjére.</p>
 
       <div class="contact-form-wrapper">
@@ -762,7 +759,7 @@
       </div>
 
       <div class="copyright">
-        &copy; 2026 FALUKÉP360 - TSP Art Lab referencia elrendezés. Minden jog fenntartva.
+        &copy; 2026 FALUKÉP360 - Minden jog fenntartva.
       </div>
     </div>
   </footer>

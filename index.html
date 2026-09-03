@@ -14,7 +14,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https:; media-src 'self' data: blob: https:; img-src 'self' data: https:; font-src 'self' https:;">
 
   <!-- Preload Critical Assets -->
-  <link rel="preload" as="video" href="./videos/falusi_eletkep_5sec.mp4" type="video/mp4">
+  <link rel="preload" as="video" href="./videos/falusi_eletkep_24fps_8sec.mp4" type="video/mp4">
   <link rel="preload" as="image" href="./images/falukep_logo.svg">
 
   <!-- Modern Official Fonts: Space Grotesk & Inter -->
@@ -26,7 +26,7 @@
 
   <style>
     /* ==========================================================================
-       FALUKÉP360 - 5 SEC SLOW-MOTION VIDEO BACKGROUND & HIVATALOS PALETTA
+       FALUKÉP360 - 24FPS 8SEC MOTION VIDEO BACKGROUND & HIVATALOS PALETTA
        ========================================================================== */
     :root {
       --bg-dark: #0a0f1d;
@@ -176,7 +176,7 @@
       padding-right: 14px;
     }
 
-    /* HERO SLIDER WITH REAL 5SEC SLOW MOTION VIDEO BACKGROUND */
+    /* HERO SLIDER WITH REAL 24FPS 8SEC VIDEO BACKGROUND */
     .hero-slider {
       position: relative;
       min-height: 100vh;
@@ -592,11 +592,11 @@
     </div>
   </header>
 
-  <!-- HERO SLIDER WITH REAL 5-SECOND SLOW MOTION VIDEO BACKGROUND -->
+  <!-- HERO SLIDER WITH REAL 24FPS 8-SECOND MOTION VIDEO BACKGROUND -->
   <section class="hero-slider">
     <div class="video-bg-container">
       <video id="hero-bg-video" class="hero-video-bg" autoplay loop muted playsinline preload="auto">
-        <source src="./videos/falusi_eletkep_5sec.mp4" type="video/mp4">
+        <source src="./videos/falusi_eletkep_24fps_8sec.mp4" type="video/mp4">
       </video>
     </div>
     <div class="hero-overlay"></div>
@@ -764,20 +764,18 @@
         <iframe id="video-iframe" src="" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
       </div>
     </div>
-  </div>
+  </div
 
   <!-- JAVASCRIPT ANIMATIONS & SLOW-MOTION VIDEO PLAYBACK -->
   <script>
-    // 1. SLOW MOTION VIDEO PLAYBACK RATE (50% SPEED = playbackRate = 0.5)
+    // 1. GUARANTEED AUTOPLAY FOR REAL 24FPS 8SEC VIDEO
     document.addEventListener('DOMContentLoaded', () => {
       const bgVideo = document.getElementById('hero-bg-video');
       if (bgVideo) {
         bgVideo.muted = true;
-        bgVideo.playbackRate = 0.5; // 50%-OS LASSÍTÁS
         bgVideo.play().catch(() => {
           document.body.addEventListener('click', () => {
             bgVideo.play();
-            bgVideo.playbackRate = 0.5;
           }, { once: true });
         });
       }
